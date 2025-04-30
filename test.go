@@ -41,7 +41,7 @@ func updatePost(postID int, p UpdatePostPayload, wg *sync.WaitGroup){
 func main(){
 	var wg sync.WaitGroup
 
-	postID := 13
+	postID := 5
 
 	wg.Add(2)
 	content := "NEW CONTENT FROM USER B"
