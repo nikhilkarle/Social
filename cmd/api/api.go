@@ -50,7 +50,7 @@ func (app *application) mount() http.Handler{
 				r.Patch("/", app.updatePostHandler)
 				r.Delete("/", app.deletePostHandler)
 			})
-		} )
+		})
 	})
 
 	return r
