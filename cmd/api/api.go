@@ -37,6 +37,8 @@ func (app *application) mount() http.Handler{
 	r.Use(middleware.Recoverer)
 
 
+	r.Use(middleware.Timeout(60 * time.Second))
+
 	r.Route("/v1", func(r chi.Router){
 		r.Get("/health", app.healthCheckHandler)
 
@@ -49,6 +51,12 @@ func (app *application) mount() http.Handler{
 				r.Get("/", app.getPostHandler)
 				r.Patch("/", app.updatePostHandler)
 				r.Delete("/", app.deletePostHandler)
+			})
+		})
+
+		r.Route("/users", func(r chi.Router){
+			r.Route("/{userID}",  func(r chi.Router){
+				r.Get("/", app.getUserHandler)
 			})
 		})
 	})

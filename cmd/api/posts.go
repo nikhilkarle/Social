@@ -133,8 +133,6 @@ func (app *application) updatePostHandler(w http.ResponseWriter, r *http.Request
 	if err := app.jsonResponse(w, http.StatusOK, post); err != nil{
 		app.internalServerError(w,r,err)
 	}
-
-
 }
 
 func (app *application) postContextMiddleware(next http.Handler) http.Handler{
@@ -160,7 +158,6 @@ func (app *application) postContextMiddleware(next http.Handler) http.Handler{
 					app.internalServerError(w,r,err)
 			}
 			return
-
 		}
 
 		ctx = context.WithValue(ctx, postCtx, post)
