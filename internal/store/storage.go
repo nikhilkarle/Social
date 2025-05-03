@@ -9,8 +9,8 @@ import (
 
 var (
 	ErrNotFound = errors.New("record not found")
-	ErrConflict = errors.New("resource already exits bro")
-	QueryTimeoutDuration = time.Second*5
+	ErrConflict = errors.New("resource already exits")
+	QueryTimeoutDuration = time.Second *5
 )
 
 type Storage struct {
@@ -19,6 +19,7 @@ type Storage struct {
 		GetByID(context.Context, int64) (*Post, error)
 		Update(context.Context, *Post)(error)
 		Delete(context.Context, int64) (error)
+		GetUserFeed(context.Context, int64) ([]PostWithMetadata, error)
 	}
 
 	Users interface {

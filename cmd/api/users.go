@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"errors"
-	"log"
 	"net/http"
 	"strconv"
 
@@ -44,7 +43,6 @@ func(app *application) followUserHandler(w http.ResponseWriter, r *http.Request)
 		switch err{
 		case store.ErrConflict:
 			app.conflictError(w,r,err)
-			log.Println("CHIGGA")
 			return
 
 		default:
