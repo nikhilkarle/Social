@@ -95,7 +95,7 @@ func (app *application) deletePostHandler(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	w.WriteHeader(http.StatusNoContent )
+	w.WriteHeader(http.StatusNoContent)
 }
 
 type UpdatePostPayload struct{
@@ -103,6 +103,22 @@ type UpdatePostPayload struct{
 	Content *string `json:"content" validate:"omitempty,max=1000"`
 }
 
+// UpdatePost godoc
+//
+//	@Summary		Updates a post
+//	@Description	Updates a post by ID
+//	@Tags			posts
+//	@Accept			json
+//	@Produce		json
+//	@Param			id		path		int					true	"Post ID"
+//	@Param			payload	body		UpdatePostPayload	true	"Post payload"
+//	@Success		200		{object}	store.Post
+//	@Failure		400		{object}	error	"Bad request"
+//	@Failure		401		{object}	error	"Unauthorized"
+//	@Failure		404		{object}	error	"Post not found"
+//	@Failure		500		{object}	error	"Internal server error"
+//	@Security		ApiKeyAuth
+//	@Router			/posts/{id} [put]
 func (app *application) updatePostHandler(w http.ResponseWriter, r *http.Request){
 	post := getPostFromCtx(r)
 
