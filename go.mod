@@ -9,6 +9,8 @@ require (
 	github.com/swaggo/http-swagger v1.3.4
 )
 
+require go.uber.org/multierr v1.10.0 // indirect
+
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.8 // indirect
@@ -23,6 +25,7 @@ require (
 	github.com/mailru/easyjson v0.9.0 // indirect
 	github.com/swaggo/files v1.0.1 // indirect
 	github.com/swaggo/swag v1.16.4 // indirect
+	go.uber.org/zap v1.27.0
 	golang.org/x/crypto v0.38.0 // indirect
 	golang.org/x/net v0.40.0 // indirect
 	golang.org/x/sys v0.33.0 // indirect
